@@ -12,14 +12,13 @@
   </head>
   <body>
     <section>
-      <img class="hero-background" src="/bg-image.avif" alt="" />
-      <script is:inline>
-        document
-          .querySelector(".hero-background")
-          .addEventListener("load", (e) => {
-            e.currentTarget.classList.add("loaded");
-          });
-      </script>
+      <img
+        width="100%"
+        height="100%"
+        class="hero-background"
+        src="/bg-image.avif"
+        alt=""
+      />
       <div class="center">
         <h1>Background Animation</h1>
       </div>
@@ -41,17 +40,13 @@
 
   section img.hero-background {
     position: absolute;
+    left: 0;
     top: 0;
-    left: -100%;
     width: 100%;
     height: 100%;
     object-fit: cover;
     z-index: -1;
-  }
-
-  section img.hero-background.loaded {
     opacity: 1;
-    left: 0;
     transform: scale(1.4);
     filter: grayscale(100%);
     background-size: cover;
