@@ -1,0 +1,109 @@
+---
+
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <section>
+      <img
+        class="hero-background"
+        src="https://images.unsplash.com/photo-1529697216570-f48ef8f6b2dd?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt=""
+      />
+      <script is:inline>
+        document
+          .querySelector(".hero-background")
+          .addEventListener("load", (e) => {
+            e.currentTarget.classList.add("loaded");
+          });
+      </script>
+      <div class="center">
+        <h1>Background Animation</h1>
+      </div>
+    </section>
+  </body>
+</html>
+
+<style>
+  body {
+    margin: 0;
+  }
+  section {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    margin: 0;
+  }
+
+  section img.hero-background {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  section img.hero-background.loaded {
+    opacity: 1;
+    left: 0;
+    transform: scale(1.4);
+    filter: grayscale(100%);
+    background-size: cover;
+    -webkit-animation: slidein 100s;
+    animation: slidein 100s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+  }
+
+  @-webkit-keyframes slidein {
+    from {
+      left: 0;
+    }
+    to {
+      left: 10%;
+    }
+  }
+
+  @keyframes slidein {
+    from {
+      left: 0;
+    }
+    to {
+      left: 10%;
+    }
+  }
+
+  .center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+  .center h1 {
+    text-align: center;
+    color: white;
+    font-size: 60px;
+    font-family: sans-serif;
+  }
+</style>
